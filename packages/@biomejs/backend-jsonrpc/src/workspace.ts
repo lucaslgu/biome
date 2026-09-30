@@ -2700,6 +2700,11 @@ See https://biomejs.dev/linter/rules/no-useless-type-conversion
 	 */
 	noUselessTypeConversion?: NoUselessTypeConversionConfiguration;
 	/**
+	* Disallow default values for Boolean props in Vue components.
+See https://biomejs.dev/linter/rules/no-vue-boolean-default 
+	 */
+	noVueBooleanDefault?: NoVueBooleanDefaultConfiguration;
+	/**
 	* Disallow the deprecated Vue $scopedSlots API.
 See https://biomejs.dev/linter/rules/no-vue-deprecated-scoped-slots 
 	 */
@@ -5075,6 +5080,9 @@ export type NoUnusedClassesConfiguration =
 export type NoUselessTypeConversionConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoUselessTypeConversionOptions;
+export type NoVueBooleanDefaultConfiguration =
+	| RulePlainConfiguration
+	| RuleWithNoVueBooleanDefaultOptions;
 export type NoVueDeprecatedScopedSlotsConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoVueDeprecatedScopedSlotsOptions;
@@ -7137,6 +7145,10 @@ export interface RuleWithNoUselessTypeConversionOptions {
 	level: RulePlainConfiguration;
 	options?: NoUselessTypeConversionOptions;
 }
+export interface RuleWithNoVueBooleanDefaultOptions {
+	level: RulePlainConfiguration;
+	options?: NoVueBooleanDefaultOptions;
+}
 export interface RuleWithNoVueDeprecatedScopedSlotsOptions {
 	fix?: FixKind;
 	level: RulePlainConfiguration;
@@ -9008,6 +9020,7 @@ Defaults to `false`.
 }
 export type NoUnusedClassesOptions = {};
 export type NoUselessTypeConversionOptions = {};
+export type NoVueBooleanDefaultOptions = {};
 export type NoVueDeprecatedScopedSlotsOptions = {};
 export type NoVueImportCompilerMacrosOptions = {};
 export type NoVueRefAsOperandOptions = {};
@@ -10508,6 +10521,7 @@ export type Category =
 	| "lint/nursery/noUnwantedPolyfillio"
 	| "lint/nursery/noUselessBackrefInRegex"
 	| "lint/nursery/noUselessTypeConversion"
+	| "lint/nursery/noVueBooleanDefault"
 	| "lint/nursery/noVueDeprecatedScopedSlots"
 	| "lint/nursery/noVueImportCompilerMacros"
 	| "lint/nursery/noVueRefAsOperand"
